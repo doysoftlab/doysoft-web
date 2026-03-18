@@ -12,7 +12,8 @@ export default function DoysoftHomepage() {
               src={logoWhiteWithText}
               alt="DOYSOFT"
               priority
-              className="h-7 w-auto"
+              sizes="(min-width: 768px) 220px, 180px"
+              className="h-9 w-auto md:h-11"
             />
             <div className="hidden sm:block">
               <div className="text-sm text-zinc-400">소프트웨어 개발 스튜디오</div>
