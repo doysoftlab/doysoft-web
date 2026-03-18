@@ -178,7 +178,8 @@ export default function DoysoftHomepage() {
         </section>
 
         <footer className="border-t border-white/10 py-6 text-sm text-zinc-500">
-          © 2026 DOYSOFT. 모든 권리 보유.
+          Contact : contact@doysoft.co.kr
+          © 2026 DOYSOFT. All rights reserved.
         </footer>
       </section>
     </main>
