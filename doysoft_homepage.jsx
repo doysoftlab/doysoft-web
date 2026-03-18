@@ -15,7 +15,7 @@ export default function DoysoftHomepage() {
               className="h-7 w-auto"
             />
             <div className="hidden sm:block">
-              <div className="text-sm text-zinc-400">B2B 소프트웨어 개발 스튜디오</div>
+              <div className="text-sm text-zinc-400">소프트웨어 개발 스튜디오</div>
             </div>
           </div>
           <a
@@ -29,7 +29,7 @@ export default function DoysoftHomepage() {
         <section className="grid gap-10 py-16 md:grid-cols-12 md:py-24">
           <div className="md:col-span-7">
             <div className="mb-5 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-zinc-300">
-              기업 맞춤형 개발 (B2B)
+              기업 맞춤형 개발
             </div>
             <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
               현업이 바로 쓰는, 실무형 소프트웨어를 만듭니다.
