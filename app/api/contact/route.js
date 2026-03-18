@@ -92,17 +92,22 @@ export async function POST(req) {
       </div>
     `;
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT) || 587,
-      secure: Number(process.env.SMTP_PORT) === 465,
+      service: 'gmail',
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      throw new Error('Missing EMAIL_USER / EMAIL_PASS environment variables');
+    }
+    if (!process.env.CONTACT_TO_EMAIL) {
+      throw new Error('Missing CONTACT_TO_EMAIL environment variable');
+    }
+
     await transporter.sendMail({
-      from: process.env.CONTACT_FROM_EMAIL,
+      from: `"DOYSOFT 문의" <${process.env.EMAIL_USER}>`,
       to: process.env.CONTACT_TO_EMAIL,
       replyTo: d.email,
       subject,
@@ -115,6 +120,7 @@ export async function POST(req) {
 
     return NextResponse.json({ ok: true, message: '문의가 접수되었습니다.' });
   } catch (error) {
+    console.error('[CONTACT_ROUTE_ERROR]', error);
     return NextResponse.json(
       { message: '서버 오류가 발생했습니다.' },
       { status: 500 },
