@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import nodemailer from 'nodemailer';
 
 const schema = z.object({
   company: z.string().min(1, '회사명을 입력해주세요.'),
@@ -88,14 +86,26 @@ export async function POST(req) {
         <div style="white-space:pre-wrap">${escapeHtml(d.message)}</div>
       </div>
     `;
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT) || 587,
+      secure: Number(process.env.SMTP_PORT) === 465,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
 
-    await resend.emails.send({
+    await transporter.sendMail({
       from: process.env.CONTACT_FROM_EMAIL,
-      to: [process.env.CONTACT_TO_EMAIL],
+      to: process.env.CONTACT_TO_EMAIL,
       replyTo: d.email,
       subject,
       html,
-      attachments,
+      attachments: attachments.map((file) => ({
+        filename: file.filename,
+        content: file.content,
+      })),
     });
 
     return NextResponse.json({ ok: true, message: '문의가 접수되었습니다.' });
