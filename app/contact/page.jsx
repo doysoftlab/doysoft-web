@@ -99,8 +99,11 @@ export default function ContactPage() {
         </a>
       </header>
 
-      <form onSubmit={onSubmit} className="mx-auto max-w-5xl px-6 pb-24 pt-10 md:px-10">
-        <div className="border-l border-white/20 pl-8 md:pl-14">
+      <form
+        onSubmit={onSubmit}
+        className="mx-auto flex max-w-7xl justify-end px-6 pb-24 pt-10 md:px-10"
+      >
+        <div className="w-full max-w-xl border-l border-white/20 pl-8 md:pl-14">
           <input
             type="text"
             name="website"
