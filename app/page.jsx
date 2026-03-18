@@ -79,10 +79,10 @@ export default function Home() {
 
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                   <a
-                    href="#contact"
-                    className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-medium text-black transition hover:opacity-90"
+                    href="/contact"
+                    className="inline-flex items-center justify-center rounded-full bg-lime-300 px-7 py-3 text-sm font-semibold text-black transition hover:opacity-90"
                   >
-                    프로젝트 문의
+                    문의하기
                   </a>
                   <a
                     href="#services"
