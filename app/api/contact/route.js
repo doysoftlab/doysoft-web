@@ -47,6 +47,11 @@ export async function POST(req) {
 
     if (!parsed.success) {
       const firstError = parsed.error.issues[0]?.message || '입력값을 확인해주세요.';
+      // 서버 로그에서 어떤 필드가 문제인지 확인할 수 있도록 출력
+      console.error('[CONTACT_VALIDATION_ERROR]', {
+        raw,
+        issues: parsed.error.issues,
+      });
       return NextResponse.json({ message: firstError }, { status: 400 });
     }
 
