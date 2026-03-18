@@ -85,23 +85,18 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#1f2128] text-white">
-      <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-10">
-        <a href="/" className="text-lg font-semibold tracking-[0.2em]">
+    <main className="min-h-screen bg-black text-white">
+      <header className="mx-auto flex max-w-7xl items-center justify-between border-b border-white/10 px-6 py-4 md:px-10">
+        <a href="/" className="text-lg font-semibold tracking-[0.24em]">
           DOYSOFT
         </a>
 
-        <div className="flex items-center gap-8">
-          <a href="/" className="text-xl font-semibold text-white">
-            Portfolio
-          </a>
-          <a
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-[#D7FF00] px-8 py-4 text-lg font-bold text-black"
-          >
-            문의하기
-          </a>
-        </div>
+        <a
+          href="/contact"
+          className="inline-flex items-center justify-center rounded-full bg-lime-300 px-7 py-2 text-sm font-semibold text-black transition hover:opacity-90"
+        >
+          문의하기
+        </a>
       </header>
 
       <form onSubmit={onSubmit} className="mx-auto max-w-5xl px-6 pb-24 pt-10 md:px-10">
